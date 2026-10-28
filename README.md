@@ -10,27 +10,24 @@
 
 ### 1.1 安装 uv 和 Python
 
-需要 **Python 3.12+**。推荐使用 `uv` 管理 Python 和脚本依赖；批量运行脚本需要 Bash，Windows 用户可在 WSL 中运行。
-
-macOS 使用 Homebrew 安装 uv：
-
-```bash
-brew install uv
+官方文档: 
+```
+https://uv.oaix.tech/getting-started/installation/
 ```
 
-Windows
-也可以在已有 Python 的环境中安装：
+如果已经安装了 Python，也可以通过 pip 安装。macOS / Linux：
 
 ```bash
 python3 -m pip install --user uv
 ```
 
-安装后确认 `uv` 在 PATH 中，并准备 Python：
+以上安装方式任选一种。安装后确认 `uv` 在 PATH 中，并准备 Python；以下命令在 PowerShell 和 macOS / Linux 终端中都可使用：
 
 ```bash
 uv --version
 uv python install 3.12
 ```
+
 
 **下文命令都在本 README 所在的 `agent-learning` 目录执行。** 如果终端当前位于本仓库根目录：
 
@@ -328,9 +325,21 @@ uv run p13i_deepagents_harness.py --decision reject
 | 找不到待审批任务                         | 检查数据库路径、thread_id 和任务是否已处理                          |
 | `GraphRecursionError`            | 先查看循环退出条件和工具错误，避免只调大步数上限                            |
 | 批量运行失败                           | 查看脚本提示的 `/tmp/run_all_*.log`，再单独运行失败文件              |
+## 官方学习文档文档
+LangChain
+```markdown
+https://docs.langchain.com/oss/python/langchain/overview
+```
+LangGraph
+```markdown
+https://docs.langchain.com/oss/python/langgraph/thinking-in-langgraph
+```
+DeepAgents
+```markdown
+https://docs.langchain.com/oss/python/deepagents/overview
+```
 
 代码检查：
-
 ```bash
 uvx ruff check .
 bash -n run_frameworks.sh run_all.sh
