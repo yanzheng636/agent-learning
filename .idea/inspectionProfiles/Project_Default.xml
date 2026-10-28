@@ -1,0 +1,144 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="1715" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredUrls">
+        <list>
+          <option value="http://localhost" />
+          <option value="http://127.0.0.1" />
+          <option value="http://0.0.0.0" />
+          <option value="http://www.w3.org/" />
+          <option value="http://json-schema.org/draft" />
+          <option value="http://java.sun.com/" />
+          <option value="http://xmlns.jcp.org/" />
+          <option value="http://javafx.com/javafx/" />
+          <option value="http://javafx.com/fxml" />
+          <option value="http://maven.apache.org/xsd/" />
+          <option value="http://maven.apache.org/POM/" />
+          <option value="http://www.springframework.org/schema/" />
+          <option value="http://www.springframework.org/tags" />
+          <option value="http://www.springframework.org/security/tags" />
+          <option value="http://www.thymeleaf.org" />
+          <option value="http://www.jboss.org/j2ee/schema/" />
+          <option value="http://www.jboss.com/xml/ns/" />
+          <option value="http://www.ibm.com/webservices/xsd" />
+          <option value="http://activemq.apache.org/schema/" />
+          <option value="http://schema.cloudfoundry.org/spring/" />
+          <option value="http://schemas.xmlsoap.org/" />
+          <option value="http://cxf.apache.org/schemas/" />
+          <option value="http://primefaces.org/ui" />
+          <option value="http://tiles.apache.org/" />
+          <option value="http://" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="IncorrectHttpHeaderInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="customHeaders">
+        <set>
+          <option value="    &quot;input_list&quot;" />
+          <option value="    &quot;width&quot;" />
+          <option value="    &quot;height&quot;" />
+          <option value="{" />
+          <option value="}" />
+          <option value="  &quot;app_id&quot;" />
+          <option value="  &quot;app_secret&quot;" />
+        </set>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredPackages">
+        <value>
+          <list size="32">
+            <item index="0" class="java.lang.String" itemvalue="httpx" />
+            <item index="1" class="java.lang.String" itemvalue="gradio" />
+            <item index="2" class="java.lang.String" itemvalue="paddleocr" />
+            <item index="3" class="java.lang.String" itemvalue="imageio-ffmpeg" />
+            <item index="4" class="java.lang.String" itemvalue="numpy" />
+            <item index="5" class="java.lang.String" itemvalue="requests" />
+            <item index="6" class="java.lang.String" itemvalue="scenedetect" />
+            <item index="7" class="java.lang.String" itemvalue="lmdb" />
+            <item index="8" class="java.lang.String" itemvalue="redis" />
+            <item index="9" class="java.lang.String" itemvalue="ftfy" />
+            <item index="10" class="java.lang.String" itemvalue="gradio_client" />
+            <item index="11" class="java.lang.String" itemvalue="tenacity" />
+            <item index="12" class="java.lang.String" itemvalue="aiomysql" />
+            <item index="13" class="java.lang.String" itemvalue="uvicorn" />
+            <item index="14" class="java.lang.String" itemvalue="pydantic" />
+            <item index="15" class="java.lang.String" itemvalue="transformers" />
+            <item index="16" class="java.lang.String" itemvalue="timm" />
+            <item index="17" class="java.lang.String" itemvalue="aiofiles" />
+            <item index="18" class="java.lang.String" itemvalue="loguru" />
+            <item index="19" class="java.lang.String" itemvalue="fastapi" />
+            <item index="20" class="java.lang.String" itemvalue="slowapi" />
+            <item index="21" class="java.lang.String" itemvalue="pytorchvideo" />
+            <item index="22" class="java.lang.String" itemvalue="alibabacloud_videoenhan20200320" />
+            <item index="23" class="java.lang.String" itemvalue="oss2" />
+            <item index="24" class="java.lang.String" itemvalue="einops" />
+            <item index="25" class="java.lang.String" itemvalue="decord" />
+            <item index="26" class="java.lang.String" itemvalue="openai_whisper" />
+            <item index="27" class="java.lang.String" itemvalue="imageio" />
+            <item index="28" class="java.lang.String" itemvalue="tqdm" />
+            <item index="29" class="java.lang.String" itemvalue="torch" />
+            <item index="30" class="java.lang.String" itemvalue="torchvision" />
+            <item index="31" class="java.lang.String" itemvalue="polars" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+          <option value="E101" />
+          <option value="W292" />
+          <option value="E122" />
+          <option value="E712" />
+          <option value="E711" />
+          <option value="W191" />
+          <option value="E271" />
+          <option value="E303" />
+          <option value="E722" />
+          <option value="W605" />
+          <option value="E127" />
+          <option value="E306" />
+          <option value="E502" />
+          <option value="E231" />
+          <option value="E701" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N801" />
+          <option value="N806" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="type" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="fastapi.applications.FastAPI.*" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SqlDialectInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SqlNoDataSourceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>

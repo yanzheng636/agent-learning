@@ -1,0 +1,6 @@
+__pycache__/
+
+# 本地模型凭证
+.env
+.env.*
+!.env.example
