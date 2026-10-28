@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langchain-openai>=1.7,<2", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
 # ///
-"""资料库 13 · LangChain 家族配套 · LangChain 结构化输出：自然语言 → Pydantic → 业务关卡。
+"""资料库 13 第 2 节的结构化输出配套扩展：自然语言 → Pydantic → 业务关卡。
 
 uv run p13c_langchain_structured.py
 
@@ -63,3 +63,4 @@ if __name__ == "__main__":
 
 # 试试改：加一个 severity: Literal["普通", "紧急"] 字段，观察 Schema 如何变。
 # 模型调用失败（例如鉴权、超时）会直接报错；include_raw 只帮助检查解析结果。
+# - 写代码：增加 severity 枚举字段，并用业务函数把紧急诉求路由到人工处理。

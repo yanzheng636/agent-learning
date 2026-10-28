@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langgraph>=1.2,<2"]
 # ///
-"""资料库 13 · LangGraph：文档 3.2 / 3.3 / 3.5 / 5.3 的 super-step、reducer 和 Send。
+"""资料库 13 第 6 节：super-step、reducer；用 Send 动态并行的配套扩展。
 
 uv run p13f_langgraph_map_reduce.py     （不需要模型）
 
@@ -91,3 +91,4 @@ if __name__ == "__main__":
 
 # 试试改：增删 docs，观察 analyze 执行次数；给某一路加延时，观察 summarize 何时执行。
 # 不要让 analyze 原地修改输入列表；只返回本分支产生的增量。
+# - 写代码：在汇总前按文档 index 检查重复和缺失结果；空文档集要有明确返回值。

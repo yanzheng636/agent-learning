@@ -7,7 +7,7 @@
 #     "pydantic-settings>=2.10,<3",
 # ]
 # ///
-"""资料库 13 · LangGraph：把文档 5.1 的 ReAct 循环和 5.5 的流式输出补成可运行代码。
+"""资料库 13 第 3、5～7 节：显式 ReAct 图与流式事件配套扩展。
 
 uv run p13e_langgraph_react.py
 
@@ -75,3 +75,4 @@ if __name__ == "__main__":
 
 # 试试改：stream_mode="values" 观察完整状态；改为只用 updates 看清循环次数。
 # tools_condition 只决定路由；bind_tools 只告诉模型工具 Schema，真正执行的是 ToolNode。
+# - 写代码：统计每次运行中 model 与 tools 节点的完成次数，单独统计工具调用次数。

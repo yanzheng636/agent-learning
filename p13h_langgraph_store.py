@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langgraph>=1.2,<2"]
 # ///
-"""资料库 13 · LangGraph：文档 3.6 / 3.12 / 5.4 的 Checkpointer、Store、Runtime Context。
+"""资料库 13 第 7 节与资料库 17 的配套扩展：Checkpointer、Store、Runtime Context。
 
 uv run p13h_langgraph_store.py     （不需要模型）
 
@@ -70,3 +70,4 @@ if __name__ == "__main__":
 
 # 试试改：最后一轮改成 u1，会读取到什么？重启整个脚本，第一次运行前还存着偏好吗？
 # namespace 是业务代码的隔离约定，不是数据库权限系统；服务端仍要鉴权并绑定 thread 所有者。
+# - 写代码：给偏好记录添加来源与更新时间，更新时检查写入用户与 namespace 一致。

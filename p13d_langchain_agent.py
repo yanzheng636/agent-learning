@@ -8,7 +8,7 @@
 #     "pydantic-settings>=2.10,<3",
 # ]
 # ///
-"""资料库 13 · LangChain 家族配套 · LangChain Agent：create_agent、工具调用、会话记忆。
+"""资料库 13 第 3、7 节：create_agent、工具调用、thread_id 与会话记忆。
 
 uv run p13d_langchain_agent.py
 
@@ -61,3 +61,4 @@ if __name__ == "__main__":
 
 # 试试改：第二轮换一个 thread_id，观察模型是否会追问订单号或重新查订单。
 # recursion_limit 限制图的执行步数，不等同于模型调用次数，也不是超时或 token 预算。
+# - 写代码：为会话封装服务端的 user_id→thread_id 映射，拒绝另一个用户读取已有会话。

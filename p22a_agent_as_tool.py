@@ -100,3 +100,4 @@ print("  这个例子里订单只有两笔，单 Agent 完全够用。值得拆�
 # 试试改：
 # - 在 _shop.ORDERS 里给 u1 多加几笔订单，看两种做法的主上下文差距怎么变
 # - 修改 SUB_PROMPT，让子 Agent 返回原始数据而不是 JSON 结论，看主上下文大小怎么变
+# - 写代码：给子 Agent 返回值定义 Pydantic Schema，校验来源和订单号后再交给主 Agent。

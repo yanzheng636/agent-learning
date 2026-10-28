@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langgraph>=1.2,<2", "langgraph-checkpoint-sqlite>=3.1,<4"]
 # ///
-"""资料库 13 · LangGraph：文档 3.4 / 3.6 / 3.7 / 5.2 的持久化、Command 和审批重放。
+"""资料库 13 第 7 节：持久化、Command 和审批重放。
 
 uv run p13g_langgraph_persistence.py  （无需模型，自动启动两个进程，退出后清理临时数据库）
 uv run p13g_langgraph_persistence.py start --db /tmp/shop-approval.sqlite
@@ -102,3 +102,4 @@ if __name__ == "__main__":
 
 # 试试改：手动 start 后关闭终端，再从新终端 reject；换 thread_id，观察为什么不能恢复旧任务。
 # durability="sync" 必须传给 invoke/stream；换成 InMemorySaver 即使 sync 也不会保存到磁盘。
+# - 写代码：新增 status 子命令，只读取检查点，显示审批参数与下一节点，不能恢复执行。

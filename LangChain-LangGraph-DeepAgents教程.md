@@ -2,7 +2,7 @@
 
 这套代码继续使用“小店客服助手”：查订单、查物流、提取售后诉求、审批退款、生成报告。每个文件讲一个主要机制，可以单独运行。
 
-LangGraph / Deep Agents 部分依据你提供的[飞书文档](https://my.feishu.cn/wiki/TjZowqX2piL1LikMe0zc4781ncd)，读取版本为 2026-10-28 的 revision 7，标题是「旧版·04-编排框架-LangGraph（重排前原版）」。这里只把文档内容落成代码，不修改飞书原文。LangChain 部分补充基础组件和 `create_agent`，让三个层次能够连起来学习。
+本教程配合[资料库 13《LangChain 家族框架讲解》](https://my.feishu.cn/wiki/ByAnwYnPdiDXq4kBjybcpyWFntd)，章节映射核对于 2026-10-28（revision 98）。从 LangChain 组件与 Agent 循环，到 LangGraph 运行时，再到 Deep Agents Harness，统一使用小店业务理解三层接口。
 
 ## 1. 先知道三个框架分别负责什么
 
@@ -43,7 +43,7 @@ bash run_frameworks.sh --all
 - “兼容 OpenAI”不等于支持所有能力。若供应商不支持工具调用、流式工具参数或结构化输出，需要换支持对应能力的模型。
 - 调用模型会产生费用。Deep Agents 可能调用多个子任务，成本和执行路径都不是固定值。
 
-本次验证使用 Python 3.12、LangChain 1.4.7、langchain-openai 1.7.3、LangGraph 1.2.18、langgraph-checkpoint-sqlite 3.1.2、Deep Agents 0.7.32。Deep Agents 仍是 0.x，示例固定到 `0.7.32`，采用该版本的 `StateBackend()` 实例接口；不要混用旧教程中的 backend factory 写法。
+各脚本的 PEP 723 区块声明了依赖范围。Deep Agents 仍是 0.x，示例固定到 `0.7.32`，采用该版本的 `StateBackend()` 实例接口；不要混用旧教程中的 backend factory 写法。
 
 ## 3. 建议阅读顺序
 
@@ -60,7 +60,7 @@ bash run_frameworks.sh --all
 | 9 | [p13j_langgraph_time_travel.py](p13j_langgraph_time_travel.py) | 从历史点创建新分支，保留原始结果 |
 | 10 | [p13i_deepagents_harness.py](p13i_deepagents_harness.py) | 委派、文件工作区、规划与工具审批怎样组合 |
 
-文件保留 `p13a` 的原位置，新增示例继续按 `p13b`～`p13j` 编号。学习时按上表即可，不必严格按文件名字母顺序。
+学习时按上表顺序运行；文件名用于稳定引用，不必严格按字母顺序。
 
 ## 4. LangChain：先把模型接成固定流程
 
@@ -206,13 +206,13 @@ branch_config = graph.update_state(past.config, {"shipping": "加急"})
 branch = graph.invoke(None, branch_config)
 ```
 
-这里特意补正原文片段容易误用的地方：`update_state` 创建新 checkpoint，并返回新配置。拿旧 `past.config` 继续，会回到旧检查点；应当使用返回的 `branch_config`。示例最后通过保存的 `original_config` 读取原结果，证明原始历史没有被覆盖。
+`update_state` 创建新 checkpoint，并返回新配置。拿旧 `past.config` 继续，会回到旧检查点；应当使用返回的 `branch_config`。示例最后通过保存的 `original_config` 读取原结果，证明原始历史没有被覆盖。
 
 时间旅行也不会撤销已经发出的邮件或扣款。因此这里选择纯报价计算，不连接真实外部操作。
 
 ## 6. Deep Agents：把能力组合成订单报告工作台
 
-`p13i` 保留飞书文档中“主 Agent 委派、收集结果、生成产物”的结构，替换掉依赖特定供应商的联网搜索工具，改用已有的小店订单工具。
+`p13i` 以“主 Agent 委派、收集结果、生成产物”为主线，使用小店订单工具完成核查和报告。
 
 | 文档能力 | 示例中的落点 |
 |---|---|
@@ -243,17 +243,17 @@ Skills / Memory 中的 Markdown 是本例应用显式加载的指令；普通订
 
 ## 7. 与飞书原文的对应关系和边界
 
-| 原文章节 | 代码 |
+| 现行资料库 13 章节 | 代码与边界 |
 |---|---|
-| LangGraph 3.1、3.3 三要素与状态 | `p13a`、`p13e`、`p13f` |
-| 3.2、3.5、5.3 super-step / Send / map-reduce | `p13f` |
-| 3.4 Command、3.6 持久化、3.7 / 5.2 审批 | `p13g` |
-| 3.8 时间旅行 | `p13j` |
-| 3.9 / 5.5 流式、5.1 ReAct | `p13e` |
-| 3.6 Store、3.12 Runtime Context、5.4 长期记忆 | `p13h` |
-| Deep Agents 第三章与第五章 | `p13i` |
+| 第 2 节：LangChain 到底交付了什么 | `p13b` 链式调用、`p13c` 结构化输出扩展 |
+| 第 3 节：Agent 是什么 | `p13d` 预置 Agent、`p13e` 显式循环 |
+| 第 4 节：Middleware | 后续 `p13k_langchain_middleware.py` 补齐，当前尚未实现 |
+| 第 5 节：为什么还需要 LangGraph | `p13a`、`p13e` 的显式状态与控制流 |
+| 第 6 节：状态与 super-step | `p13f` 并发写入与 reducer，扩展 Send 动态分发 |
+| 第 7 节：检查点、thread_id、interrupt | `p13g` 跨进程审批恢复；`p13h` 扩展 Store / Runtime Context，`p13j` 扩展时间旅行 |
+| 第 8 节：Deep Agents | `p13i` 委派、工作区、Memory / Skills 与写入审批 |
 
-这套入门代码没有连接生产 Postgres、LangSmith、远程 sandbox，也没有展开 Functional API、独立子图拓扑和节点缓存/重试。文档里的这些属于后续工程扩展；不要从当前示例推断已经具备生产级并发、权限、审计或 exactly-once 保证。
+Store / Runtime Context、流式事件、动态 Send 与时间旅行作为配套扩展讲解，不套用旧版文档的小节编号。当前没有展开生产数据库、远程沙箱或完整服务端授权；检查点也不保证外部副作用只执行一次。
 
 ## 8. 如何验证、遇到问题看哪里
 
@@ -263,7 +263,7 @@ ruff check _langchain.py p13*.py
 bash -n run_frameworks.sh
 ```
 
-本次验证包含五个无模型示例，以及用本地 OpenAI 兼容模拟接口执行链、批量、流式、结构化输出、工具回填、子 Agent 和文件审批流程。还检查了空输入汇总、批准与拒绝的跨进程恢复、重复恢复保护、跨用户隔离和历史分支保留。模拟接口只证明程序接线与执行机制，不证明真实供应商兼容性或模型效果。
+无模型示例用于验证状态、分支、恢复与隔离。涉及模型的示例直接调用所配置的真实服务；具体输出、工具选择和报告生成以当次运行结果为准。无模型示例通过不代表模型能力或供应商兼容性也已验证。
 
 | 现象 | 先检查 |
 |---|---|
@@ -277,3 +277,39 @@ bash -n run_frameworks.sh
 | Deep Agents 没生成报告 | 检查是否拒绝写入，或模型是否实际调用了 `task` / `write_file` |
 
 继续阅读：[LangChain Quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)、[LangGraph Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart)、[LangGraph Interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts)、[Deep Agents Quickstart](https://docs.langchain.com/oss/python/deepagents/quickstart)。
+
+
+## 9. 把工程机制接回 LangChain / LangGraph
+
+学会框架 API 后，用下面的 B 批示例把各机制放回同一条执行流程。每个文件仍可独立运行，具体配置见 [README 的 B 批说明](README.md)。
+
+| 示例 | 框架里的落点 | 阅读时追踪什么 |
+|---|---|---|
+| [p03a_prompt_layers.py](p03a_prompt_layers.py) | `ChatPromptTemplate.partial` 与 LCEL 链 | 哪些变量固定，哪些在 invoke 时提供；缺变量为什么在请求前报错 |
+| [p05b_streaming.py](p05b_streaming.py) | `ChatOpenAI.stream` 与 `AIMessageChunk` | 多个工具的 index 如何合并；为什么部分 JSON 可展示但不可执行 |
+| [p16b_compaction.py](p16b_compaction.py) | `compact → answer`、消息 reducer、`RemoveMessage` | 哪些消息被删除，哪些目标、约束和证据仍在 protected；摘要自己是否超预算 |
+| [p18a_hybrid_retrieval.py](p18a_hybrid_retrieval.py) | `BaseRetriever.invoke` 返回 `Document` | BM25 / 向量召回 / RRF 的来源与分数；租户过滤在何处执行 |
+| [p18b_agentic_search.py](p18b_agentic_search.py) | Retriever 包成工具，`model ⇄ search` | 下一次查词由谁决定；缓存、检索预算和引用白名单如何影响结束条件 |
+| [p19_mini_harness.py](p19_mini_harness.py) | 明确的钩子节点、interrupt 与 checkpointer | 整批校验、审批、执行的顺序；暂停时是否已发生副作用 |
+| [p26_langfuse_tracing.py](p26_langfuse_tracing.py) | `config.callbacks` 传入 Langfuse Handler | 图节点、模型 generation、工具 span 如何关联到同一个根任务 trace |
+
+p19 的主循环如下。每个关卡还可以带着明确原因走向 END；一批里有多个调用时，逐项审批和执行，一旦重复失败达到阈值就停止剩余动作。
+
+```mermaid
+flowchart LR
+    A[before_model 检查预算] --> B[model]
+    B -->|工具调用| C[validate 整批校验]
+    C --> D[approval 审批暂停与恢复]
+    D -->|允许| E[execute]
+    E --> F[after_tool 重复失败检测]
+    F -->|本批还有调用| D
+    F -->|本批已结束| A
+    B -->|最终回答| Z[END]
+```
+
+图和钩子让执行规则可见，但不会自动提供业务授权。p19 的身份仍由程序注入，审批绑定规范化参数；p18a 的租户过滤也不交给模型选择。检查点保存的是本地状态，真实外部写入还需要幂等设计。
+
+```bash
+# 只运行本批本地控制检查：无在线模型、无 Embedding 下载、无追踪上传
+bash run_all.sh --check-b
+```

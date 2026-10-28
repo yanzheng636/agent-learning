@@ -7,7 +7,7 @@
 #     "pydantic-settings>=2.10,<3",
 # ]
 # ///
-"""资料库 13 · Deep Agents：把文档中的 Harness 改成小店订单分析示例。
+"""资料库 13 第 8 节：Deep Agents Harness 的小店订单分析示例。
 
 uv run p13i_deepagents_harness.py
 uv run p13i_deepagents_harness.py --decision reject
@@ -114,3 +114,4 @@ if __name__ == "__main__":
 
 # 试试改：去掉 TodoListMiddleware 对比工具列表；用 --decision reject 看文件是否生成。
 # 短任务未必触发自动总结 / 大结果卸载；不能因为安装了 middleware 就声称本轮已触发这些机制。
+# - 写代码：为报告内容编写校验函数，要求包含订单号与工具来源，缺项时明确显示未通过验收。

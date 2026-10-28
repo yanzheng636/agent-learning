@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langchain-openai>=1.7,<2", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
 # ///
-"""资料库 13 · LangChain 家族配套 · LangChain 入门：Prompt → Model → Parser。
+"""资料库 13 第 2 节：LangChain 入门，Prompt → Model → Parser。
 
 uv run p13b_langchain_chain.py
 
@@ -50,3 +50,4 @@ if __name__ == "__main__":
 # 试试改：
 # - 去掉 StrOutputParser()，观察 invoke 返回的 AIMessage 的 content 和 usage_metadata。
 # - 在模型之前接一个 RunnableLambda 做输入检查，和 p08a 的代码关卡对照。
+# - 写代码：实现一个 RunnableLambda，拒绝空白问题，并在错误中指出缺少 question。

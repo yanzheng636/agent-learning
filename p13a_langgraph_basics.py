@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["langgraph>=1.2"]
 # ///
-"""资料库 13《LangGraph》：State、节点和边、条件分支、检查点、interrupt 人工介入，一个文件看全。
+"""资料库 13 第 5～7 节：LangGraph 的 State、节点和边、条件分支、检查点、interrupt 人工介入。
 
 uv run p13a_langgraph_basics.py      （不需要模型：节点都是普通函数，真实项目里节点里面调模型）
 
@@ -88,3 +88,4 @@ for h in app.get_state_history(cfg):
 # 试试改：
 # - 第 3 段改成 Command(resume="拒绝")，看走向
 # - 给 State 加一个 attempts: Annotated[int, operator.add] 字段，在每个节点 +1，看合并规则怎么起作用
+# - 写代码：新增 audit 节点收集审批结果，把批准与拒绝分支都接入 audit 后再结束。

@@ -74,3 +74,6 @@ def returns_policy() -> str:
 
 if __name__ == "__main__":
     server.run()  # 默认走 stdio；部署成远程服务用 server.run("streamable-http")
+
+# 试试改：
+# - 写代码：用 @server.tool() 实现 search_knowledge，返回带 source 的资料，并用 p11b 验证自动发现。
