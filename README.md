@@ -8,7 +8,7 @@
 
 ## 1. 环境准备
 
-### 1.1 安装 uv 和 Python
+### 1.1 安装 uv
 
 官方安装文档：[uv Installation](https://docs.astral.sh/uv/getting-started/installation/)。
 
@@ -18,19 +18,33 @@
 python3 -m pip install --user uv
 ```
 
-以上安装方式任选一种。安装后确认 `uv` 在 PATH 中，并准备 Python；以下命令在 PowerShell 和 macOS / Linux 终端中都可使用：
+以上安装方式任选一种。安装后确认 `uv` 在 PATH 中，以下命令在 PowerShell 和 macOS / Linux 终端中都可使用：
 
 ```bash
 uv --version
-uv python install 3.12
 ```
-
 
 **下文命令都在本 README 所在的 `agent-learning` 目录执行。** 请先在终端切换到该目录。
 
-脚本开头的 `# /// script` 区块声明了 Python 版本和依赖。使用 `uv run 文件名.py` 时，uv 会自动准备环境，不需要手动建虚拟环境或统一安装所有包。
+### 1.2 一步配置环境：uv sync
 
-### 1.2 先验证无模型示例
+```bash
+uv sync
+```
+
+这一条命令完成全部准备：
+
+1. 按 [`.python-version`](.python-version) 准备 Python 3.12，本机没有时 uv 会自动下载，不需要另外安装 Python；
+2. 在本目录创建虚拟环境 `.venv`；
+3. 按 [`uv.lock`](uv.lock) 安装 [`pyproject.toml`](pyproject.toml) 声明的全部依赖，包括检索、追踪示例用的包和代码检查工具 ruff。锁文件固定了每个包的版本，所有人装到的环境一致。
+
+首次安装要下载一百多个包，`.venv` 约 500 MB，耗时主要取决于网络；装好后再运行示例不会重复下载。
+
+之后照常用 `uv run 文件名.py` 运行示例，uv 直接使用这个 `.venv`；`pyproject.toml` 或 `uv.lock` 有变化时，`uv run` 会先自动同步。在 PyCharm / VS Code 里把解释器设为 `.venv/bin/python`（Windows 为 `.venv\Scripts\python.exe`），就可以直接点运行按钮。
+
+依赖统一写在 `pyproject.toml`，示例文件里不再单独声明。需要新增依赖时运行 `uv add 包名`，它会同时更新 `pyproject.toml` 和 `uv.lock`。
+
+### 1.3 先验证无模型示例
 
 还没有 API Key，也可以先运行：
 
@@ -44,7 +58,7 @@ uv run p13a_langgraph_basics.py
 bash run_frameworks.sh --offline
 ```
 
-`--offline` 指**不调用模型**，不等于完全断网：首次运行仍需下载依赖；使用 tiktoken 的其他示例首次运行还可能下载编码文件。
+`--offline` 指**不调用模型**，不等于完全断网：使用 tiktoken 的其他示例首次运行还可能下载编码文件。
 
 ## 2. 配置模型：.env → Settings → 调用方
 
@@ -254,6 +268,14 @@ bash run_all.sh
 
 此脚本按文件名运行基础 `p*.py`，跳过由客户端启动的 MCP Server，默认也跳过需要下载 Embedding 的 p18a / p18b 和会上传追踪的 p26。任一示例失败便停止，日志保存到 `/tmp/run_all_文件名.log`。它是批量演示入口，不是固定模型效果的测试断言。
 
+### 代码检查
+
+```bash
+uv run ruff check .
+```
+
+ruff 由 `uv sync` 一并装进 `.venv`，规则见 [ruff.toml](ruff.toml)。
+
 可选集成和 B 批本地检查：
 
 ```bash
@@ -303,6 +325,9 @@ uv run p13i_deepagents_harness.py --decision reject
 
 | 文件                                     | 职责                                         |
 |----------------------------------------|--------------------------------------------|
+| [pyproject.toml](pyproject.toml)       | Python 版本要求与全部依赖，`uv sync` 按它配置环境            |
+| [uv.lock](uv.lock)                     | 锁定的依赖版本，由 uv 生成，随代码提交，不要手改                  |
+| [.python-version](.python-version)     | 本项目使用的 Python 版本（3.12）                        |
 | [setting.py](setting.py)               | 配置字段、`.env` 读取、类型校验和共享 `settings` 实例       |
 | [.env.example](.env.example)           | 不含真实密钥的配置模板                                |
 | `_llm.py`                              | OpenAI 兼容客户端、消息与工具调用结构、最小 Agent 循环         |
@@ -326,7 +351,7 @@ uv run p13i_deepagents_harness.py --decision reject
 |----------------------------------|-----------------------------------------------------|
 | `uv: command not found`          | 确认 uv 已安装，安装目录已加入 PATH，必要时重开终端                      |
 | 找不到 `.py` 文件                     | 确认当前目录为本 README 所在的 `agent-learning`                |
-| `ModuleNotFoundError`            | 使用 `uv run 文件名.py`，普通 `python 文件名.py` 不会自动安装脚本声明的依赖 |
+| `ModuleNotFoundError`            | 先运行 `uv sync`，再用 `uv run 文件名.py`；用 IDE 运行时检查解释器是否为 `.venv` 里的 Python |
 | 提示缺少 `LLM_API_KEY` 或 `LLM_MODEL` | 检查 `.env` 是否存在、字段是否非空、是否仍是模板占位值                     |
 | 修改 `.env` 后仍使用旧值                 | 重启进程；检查是否有已有环境变量或旧 `llm_env.sh` 覆盖配置                |
 | 新增的配置读不到                         | 先在 `Settings` 中声明字段；仅添加 `.env` 键不会自动生成属性            |
@@ -452,7 +477,7 @@ LANGFUSE_SECRET_KEY=你的项目SecretKey
 
 ### 每批验收方式
 
-- 静态检查、PEP 723 依赖与运行说明一致；默认入口不伪造模型返回值。
+- 静态检查、`pyproject.toml` 依赖与运行说明一致；默认入口不伪造模型返回值。
 - 真实模型示例记录所用模型与实际现象，不把模型未触发某条路径说成防线已通过验证。
 - 参数、审批、故障停止等规则用本地回归检查验证；模型效果实验保留原始回答、工具轨迹及待复核结果。
 - 新依赖、模型下载和外部服务在对应示例说明；基础批量运行与可选扩展分开。

@@ -17,7 +17,7 @@
 
 ## 2. 环境与运行方式
 
-在本教程所在的 `agent-learning` 目录运行命令。需要 Python 3.12+ 和 `uv`；依赖已经写在每个脚本开头的 PEP 723 区块中，不用先统一安装所有包。
+在本教程所在的 `agent-learning` 目录运行命令。装好 `uv` 后先运行一次 `uv sync`，它会准备 Python 3.12、创建 `.venv` 并安装 `pyproject.toml` 里的全部依赖，详见 README 的「一步配置环境」。
 
 先运行不需要模型的部分：
 
@@ -25,7 +25,7 @@
 bash run_frameworks.sh --offline
 ```
 
-它运行 `p13a`、`p13f`、`p13g`、`p13h`、`p13j`。这里的 offline 指不调用模型；首次执行仍需要联网下载 Python 依赖。
+它运行 `p13a`、`p13f`、`p13g`、`p13h`、`p13j`。这里的 offline 指不调用模型。
 
 要调用模型，先编辑本目录的 `.env`（格式见 `.env.example`），填写 `LLM_API_KEY`、`LLM_MODEL` 和 `LLM_BASE_URL`，然后直接运行：
 
@@ -43,7 +43,7 @@ bash run_frameworks.sh --all
 - “兼容 OpenAI”不等于支持所有能力。若供应商不支持工具调用、流式工具参数或结构化输出，需要换支持对应能力的模型。
 - 调用模型会产生费用。Deep Agents 可能调用多个子任务，成本和执行路径都不是固定值。
 
-各脚本的 PEP 723 区块声明了依赖范围。Deep Agents 仍是 0.x，示例固定到 `0.7.32`，采用该版本的 `StateBackend()` 实例接口；不要混用旧教程中的 backend factory 写法。
+依赖范围统一写在 `pyproject.toml`，实际版本由 `uv.lock` 固定。Deep Agents 仍是 0.x，示例固定到 `0.7.32`，采用该版本的 `StateBackend()` 实例接口；不要混用旧教程中的 backend factory 写法。
 
 ## 3. 建议阅读顺序
 
