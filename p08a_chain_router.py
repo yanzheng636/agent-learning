@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 08《常用编排模式》里的链式和路由：流程由代码定，模型只负责其中几步。
 
 uv run p08a_chain_router.py

@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langgraph>=1.2,<2"]
-# ///
 """资料库 13 第 7 节检查点的配套扩展：历史检查点与分支重放。
 
 uv run p13j_langgraph_time_travel.py     （不需要模型）

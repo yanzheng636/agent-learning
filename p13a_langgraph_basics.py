@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langgraph>=1.2"]
-# ///
 """资料库 13 第 5～7 节：LangGraph 的 State、节点和边、条件分支、检查点、interrupt 人工介入。
 
 uv run p13a_langgraph_basics.py      （不需要模型：节点都是普通函数，真实项目里节点里面调模型）

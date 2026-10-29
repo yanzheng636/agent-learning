@@ -1,4 +1,5 @@
 __pycache__/
+.venv/
 
 # 本地模型凭证
 .env

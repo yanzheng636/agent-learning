@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langgraph>=1.2,<2"]
-# ///
 """资料库 13 第 7 节与资料库 17 的配套扩展：Checkpointer、Store、Runtime Context。
 
 uv run p13h_langgraph_store.py     （不需要模型）

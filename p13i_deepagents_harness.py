@@ -1,12 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "deepagents==0.7.32",
-#     "langchain-openai>=1.7,<2",
-#     "python-dotenv>=1.1,<2",
-#     "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 13 第 8 节：Deep Agents Harness 的小店订单分析示例。
 
 uv run p13i_deepagents_harness.py

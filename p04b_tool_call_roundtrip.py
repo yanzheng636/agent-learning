@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 04《结构化输出与 Function Calling》：一轮工具调用里，messages 和 tool_calls 是怎么来回的。
 
 uv run p04b_tool_call_roundtrip.py

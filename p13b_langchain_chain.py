@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langchain-openai>=1.7,<2", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 13 第 2 节：LangChain 入门，Prompt → Model → Parser。
 
 uv run p13b_langchain_chain.py

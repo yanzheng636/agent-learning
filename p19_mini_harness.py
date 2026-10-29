@@ -1,12 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-openai>=1.7,<2",
-#   "langgraph>=1.2,<2",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 19：把工程机制组装进同一个 LangGraph 工具循环。
 
 uv run p19_mini_harness.py

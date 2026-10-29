@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["mcp>=2.3", "pydantic>=2.11"]
-# ///
 """资料库 11《MCP》：把小店的查询能力做成一个 MCP Server。
 
 不要直接运行它：它通过标准输入输出（stdio）和客户端说话，单独跑起来只会静静等输入。用 p11b 启动并调用它：

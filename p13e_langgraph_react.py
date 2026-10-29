@@ -1,12 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "langchain-openai>=1.7,<2",
-#     "langgraph>=1.2,<2",
-#     "python-dotenv>=1.1,<2",
-#     "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 13 第 3、5～7 节：显式 ReAct 图与流式事件配套扩展。
 
 uv run p13e_langgraph_react.py

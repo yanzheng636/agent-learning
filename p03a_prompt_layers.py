@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-openai>=1.7,<2",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 03：用 LangChain 组织分层提示；缺变量在请求前报错。
 
 uv run p03a_prompt_layers.py

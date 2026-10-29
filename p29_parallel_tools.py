@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pydantic>=2.11"]
-# ///
 """资料库 29《性能与成本优化》：模型一轮给出几个互不依赖的工具调用时，并发执行，耗时从“相加”变成“取最慢”。
 
 uv run p29_parallel_tools.py      （不需要模型；工具加了模拟的网络延迟）

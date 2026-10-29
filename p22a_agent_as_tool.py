@@ -1,13 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "openai>=3.0",
-#     "pydantic>=2.11",
-#     "tiktoken>=0.9",
-#     "python-dotenv>=1.1,<2",
-#     "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 22《多 Agent》：把一个子 Agent 包装成工具（Agent-as-Tool），看上下文隔离换来了什么、花了什么。
 
 uv run p22a_agent_as_tool.py

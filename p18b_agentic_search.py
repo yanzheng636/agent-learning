@@ -1,17 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-openai>=1.7,<2",
-#   "langgraph>=1.2,<2",
-#   "chromadb>=1,<2",
-#   "qdrant-client>=1.15,<2",
-#   "fastembed>=0.7,<0.8",
-#   "jieba>=0.42,<0.43",
-#   "rank-bm25>=0.2.2,<0.3",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 18：LangGraph Agent 自主决定查什么、重查几次以及何时回答。
 
 uv run p18b_agentic_search.py --backend qdrant

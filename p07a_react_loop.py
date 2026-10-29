@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 07《Agent 循环》：手写一个 ReAct 循环，看模型、工具、观察怎么一圈圈转起来。
 
 uv run p07a_react_loop.py

@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langgraph>=1.2,<2"]
-# ///
 """资料库 13 第 6 节：super-step、reducer；用 Send 动态并行的配套扩展。
 
 uv run p13f_langgraph_map_reduce.py     （不需要模型）

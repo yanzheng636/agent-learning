@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 10《工具执行与沙箱》：按风险给工具分级，高风险的要人确认，每次调用都留审计记录。
 
 uv run p10a_risk_tiers_approval.py             在终端里运行会停下来问你批不批准

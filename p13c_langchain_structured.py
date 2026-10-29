@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langchain-openai>=1.7,<2", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 13 第 2 节的结构化输出配套扩展：自然语言 → Pydantic → 业务关卡。
 
 uv run p13c_langchain_structured.py

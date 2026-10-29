@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pydantic>=2.11", "tiktoken>=0.9"]
-# ///
 """资料库 05《调用约束：Token、成本、延迟与流式》：一次请求的 token 从哪来，Agent 为什么越跑越贵。
 
 uv run p05a_count_tokens.py      （不需要模型；第一次运行 tiktoken 会下载一个编码文件）

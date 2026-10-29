@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 27《安全与 Guardrails》：间接提示注入怎么发生，以及用 Rule of Two 在系统层面拦住它。
 
 uv run p27a_indirect_injection.py

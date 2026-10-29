@@ -1,13 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "openai>=3.0",
-#     "pydantic>=2.11",
-#     "tiktoken>=0.9",
-#     "python-dotenv>=1.1,<2",
-#     "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 24《Agent 为什么翻车》的死循环：三道兜底——步数上限、重复失败检测、token 预算。
 
 uv run p24a_loop_guard.py

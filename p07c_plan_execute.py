@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 07《Agent 循环》的 Plan-and-Execute：先让模型列出全部步骤和依赖，再由程序并发执行。
 
 uv run p07c_plan_execute.py

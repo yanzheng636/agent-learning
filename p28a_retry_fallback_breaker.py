@@ -1,6 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# ///
 """资料库 28《模型路由与 LLM 网关》：按错误类型重试、切备用模型、熔断。
 
 uv run p28a_retry_fallback_breaker.py      （不调真模型：两个“模型服务”是模拟的，按剧本返回成功或各种错误）

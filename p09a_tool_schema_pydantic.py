@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pydantic>=2.11", "tiktoken>=0.9", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 09《工具设计》：用 Pydantic 定义工具参数，生成 JSON Schema、校验模型给的参数、把错误写成模型能改的样子。
 
 uv run p09a_tool_schema_pydantic.py      （不需要模型）

@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pydantic>=2.11", "tiktoken>=0.9"]
-# ///
 """资料库 16《Context Engineering》：给上下文算预算，看哪块最占地方，再用三招压下来；顺便看前缀缓存为什么会失效。
 
 uv run p16a_context_budget.py      （不需要模型）

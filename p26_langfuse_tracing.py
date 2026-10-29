@@ -1,14 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain>=1.4,<2",
-#   "langchain-openai>=1.7,<2",
-#   "langgraph>=1.2,<2",
-#   "langfuse>=3.15,<4",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 26：用 Langfuse CallbackHandler 追踪 LangChain / LangGraph。
 
 uv run p26_langfuse_tracing.py --upload

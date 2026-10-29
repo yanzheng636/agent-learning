@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-openai>=1.7,<2",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 05：LangChain 流式输出、首文本延迟、交错 tool_calls 分片。
 
 uv run p05b_streaming.py

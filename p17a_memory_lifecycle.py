@@ -1,6 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# ///
 """资料库 17《Agent 记忆》：长期记忆的四件事——写入、检索、更新、遗忘，以及为什么要记下来源。
 
 uv run p17a_memory_lifecycle.py      （不需要模型，也不需要装任何包）

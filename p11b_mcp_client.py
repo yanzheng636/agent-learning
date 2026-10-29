@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["mcp>=2.3", "openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 11《MCP》：宿主程序启动 p11a 这个 MCP Server，发现它的工具，交给模型用。
 
 uv run p11b_mcp_client.py

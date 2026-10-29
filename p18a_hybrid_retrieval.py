@@ -1,16 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-core>=1.4,<2",
-#   "chromadb>=1,<2",
-#   "qdrant-client>=1.15,<2",
-#   "fastembed>=0.7,<0.8",
-#   "jieba>=0.42,<0.43",
-#   "rank-bm25>=0.2.2,<0.3",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 18：中文 BM25 + 向量召回 + RRF，封装成 LangChain BaseRetriever。
 
 uv run p18a_hybrid_retrieval.py --backend both

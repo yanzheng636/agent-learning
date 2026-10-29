@@ -1,0 +1,33 @@
+[project]
+name = "agent-learning"
+version = "0.1.0"
+description = "AI Agent 技术资料库配套示例代码"
+requires-python = ">=3.12"
+dependencies = [
+    # 配置与模型调用
+    "openai>=3.0",
+    "pydantic>=2.11",
+    "pydantic-settings>=2.10,<3",
+    "python-dotenv>=1.1,<2",
+    "tiktoken>=0.9",
+    # LangChain / LangGraph / Deep Agents（第 13 章及 B 批）
+    "langchain>=1.4,<2",
+    "langchain-core>=1.4,<2",
+    "langchain-openai>=1.7,<2",
+    "langgraph>=1.2,<2",
+    "langgraph-checkpoint-sqlite>=3.1,<4",
+    "deepagents==0.7.32",
+    # MCP（p11a / p11b）
+    "mcp>=2.3",
+    # 混合检索（p18a / p18b）
+    "chromadb>=1,<2",
+    "qdrant-client>=1.15,<2",
+    "fastembed>=0.7,<0.8",
+    "jieba>=0.42,<0.43",
+    "rank-bm25>=0.2.2,<0.3",
+    # 追踪（p26）
+    "langfuse>=3.15,<4",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.17"]

@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["openai>=3.0", "pydantic>=2.11", "python-dotenv>=1.1,<2", "pydantic-settings>=2.10,<3"]
-# ///
 """资料库 25《Agent 评估》：任务、真实模型试验、代码评分器、pass@k 与 pass^k。
 
 uv run p25a_eval_pass_k.py

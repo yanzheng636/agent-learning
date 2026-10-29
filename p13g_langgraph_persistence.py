@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["langgraph>=1.2,<2", "langgraph-checkpoint-sqlite>=3.1,<4"]
-# ///
 """资料库 13 第 7 节：持久化、Command 和审批重放。
 
 uv run p13g_langgraph_persistence.py  （无需模型，自动启动两个进程，退出后清理临时数据库）

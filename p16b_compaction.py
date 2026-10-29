@@ -1,12 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#   "langchain-openai>=1.7,<2",
-#   "langgraph>=1.2,<2",
-#   "python-dotenv>=1.1,<2",
-#   "pydantic-settings>=2.10,<3",
-# ]
-# ///
 """资料库 16：LangGraph 的压缩节点；摘要可损失，目标、约束与证据单独保存。
 
 uv run p16b_compaction.py
